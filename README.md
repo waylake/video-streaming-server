@@ -71,6 +71,19 @@ D --> |HLS 데이터 스트리밍| A
 
 - `.env` 파일을 생성하고 필요한 환경 변수를 설정합니다. 예를 들어 MinIO 설정, 포트 번호 등을 설정합니다.
 
+```base
+NODE_ENV=development
+PORT=3000
+MINIO_ENDPOINT=minio
+MINIO_PORT=9000
+MINIO_ACCESS_KEY=MINIO_ACCESS_KEY
+MINIO_SECRET_KEY=MINIO_SECRET_KEY
+MINIO_BUCKET_NAME=videos
+
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin
+```
+
 2. **Docker Compose 사용하여 실행** :
 
 - Docker 및 Docker Compose를 사용하여 모든 서비스를 실행할 수 있습니다.
@@ -145,4 +158,3 @@ brew install ffmpeg
 │ └── VideoService.ts
 └── tsconfig.json
 ```
-
