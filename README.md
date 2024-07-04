@@ -5,16 +5,19 @@
 ### flow chart
 
 ```mermaid
-graph TD;
-A[클라이언트] -->|비디오 업로드 요청| B[서버]
-B --> |HLS로 변환 시작| F[FFmpeg 변환]
-F --> |HLS 파일 생성| G[임시 폴더]
-G --> |HLS 파일 업로드| C[MinIO 서버]
-A -->|비디오 스트리밍 요청| D[서버]
-D -->|HLS 파일 메타데이터 확인| C
-C --> |HLS 파일 전송| D
-D --> |HLS 데이터 스트리밍| A
-
+graph TD
+    A[Client] -->|Upload Video| B(Upload Endpoint)
+    B --> C{VideoController}
+    C -->|Process Upload| D[VideoService]
+    D -->|Store Video| E[(MinIO)]
+    D -->|Convert to HLS| F[ffmpeg]
+    F --> D
+    D -->|Store HLS| E
+    A -->|Request Stream| G(Stream Endpoint)
+    G --> C
+    C -->|Get HLS Stream| D
+    D -->|Retrieve HLS| E
+    D -->|Stream to Client| A
 ```
 
 1. **비디오 업로드 요청** :
