@@ -95,8 +95,8 @@ docker-compose up --build
 3. **개발 환경에서 직접 실행** :
 
 - Node.js 환경에서 직접 서버를 실행하려면, 다음 명령어를 사용합니다.
-프로젝트 개발에는 bun 을 사용하였습니다.
-docker 로 실행될때에는 npm 으로 작업이 진행됩니다.
+  프로젝트 개발에는 bun 을 사용하였습니다.
+  docker 로 실행될때에는 npm 으로 작업이 진행됩니다.
 
 ```sh
 bun install
